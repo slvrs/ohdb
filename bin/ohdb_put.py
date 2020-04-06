@@ -2,8 +2,7 @@ import sys
 import importlib
 
 if len(sys.argv) < 3:
-    sys.stderr.write("OHDB Put: Not enough arguments")
-    sys.exit()
+    sys.exit("OHDB Put: Not enough arguments")
 
 db = importlib.import_module("ohdb_db")
 conn = db.connect()

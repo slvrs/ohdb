@@ -2,7 +2,9 @@ import sqlite3
 import os
 
 def connect():
-    conn = sqlite3.connect(db_file_name())
+    fname = db_file_name()
+    os.makedirs(os.path.split(fname)[0])
+    conn = sqlite3.connect(fname)
     db_init(conn)
     return conn
 

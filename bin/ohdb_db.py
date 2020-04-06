@@ -3,7 +3,9 @@ import os
 
 def connect():
     fname = db_file_name()
-    os.makedirs(os.path.split(fname)[0])
+    db_dir = os.path.split(fname)[0]
+    if not os.path.exists(db_dir):
+        os.makedirs(db_dir)
     conn = sqlite3.connect(fname)
     db_init(conn)
     return conn
